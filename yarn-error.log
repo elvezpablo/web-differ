@@ -1,5 +1,5 @@
 Arguments: 
-  /Users/prange000/.nvm/versions/node/v13.7.0/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add tsnode
+  /Users/prange000/.nvm/versions/node/v13.7.0/bin/node /usr/local/Cellar/yarn/1.22.4/libexec/bin/yarn.js add d3
 
 PATH: 
   /Users/prange000/.gem/bin:/usr/local/sbin:/usr/local/opt/sqlite/bin:/usr/local/opt/icu4c/sbin:/Users/prange000/.nvm/versions/node/v13.7.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/fzf/bin
@@ -14,17 +14,8 @@ Platform:
   darwin x64
 
 Trace: 
-  Error: https://repo.theplatform.com/artifactory/api/npm/npm-tp/tsnode: not_found
-      at Request.params.callback [as _callback] (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:66987:18)
-      at Request.self.callback (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:140748:22)
-      at Request.emit (events.js:321:20)
-      at Request.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141720:10)
-      at Request.emit (events.js:321:20)
-      at IncomingMessage.<anonymous> (/usr/local/Cellar/yarn/1.22.4/libexec/lib/cli.js:141642:12)
-      at Object.onceWrapper (events.js:427:28)
-      at IncomingMessage.emit (events.js:333:22)
-      at endReadableNT (_stream_readable.js:1201:12)
-      at processTicksAndRejections (internal/process/task_queues.js:84:21)
+  Error: connect ECONNREFUSED 208.79.65.147:443
+      at TCPConnectWrap.afterConnect [as oncomplete] (net.js:1137:16)
 
 npm manifest: 
   {
@@ -36,10 +27,21 @@ npm manifest:
     "license": "MIT",
     "private": true,
     "dependencies": {
-      "fs": "^0.0.1-security",
-      "mz": "^2.7.0",
+      "pixelmatch": "^5.2.0",
+      "pngjs": "^5.0.0",
       "puppeteer": "^3.0.4",
-      "resemblejs": "^3.2.4"
+      "resemblejs": "^3.2.4",
+      "ts-node": "^8.10.1",
+      "typescript": "^3.8.3"
+    },
+    "scripts": {
+      "start": "ts-node src/index.ts"
+    },
+    "devDependencies": {
+      "@types/node": "^13.13.5",
+      "@types/pixelmatch": "^5.2.1",
+      "@types/puppeteer": "^2.0.1",
+      "@types/resemblejs": "^1.3.28"
     }
   }
 
@@ -51,10 +53,29 @@ Lockfile:
   # yarn lockfile v1
   
   
-  "@types/node@*":
+  "@types/node@*", "@types/node@^13.13.5":
     version "13.13.5"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/@types/node/-/node-13.13.5.tgz#96ec3b0afafd64a4ccea9107b75bf8489f0e5765"
     integrity sha1-luw7Cvr9ZKTM6pEHt1v4SJ8OV2U=
+  
+  "@types/pixelmatch@^5.2.1":
+    version "5.2.1"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/@types/pixelmatch/-/pixelmatch-5.2.1.tgz#c82843e0c08417b45a233ddd267852c3c1b7afaa"
+    integrity sha1-yChD4MCEF7RaIz3dJnhSw8G3r6o=
+    dependencies:
+      "@types/node" "*"
+  
+  "@types/puppeteer@^2.0.1":
+    version "2.0.1"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/@types/puppeteer/-/puppeteer-2.0.1.tgz#83a1d7f0a1c2e0edbbb488b4d8fb54b14ec9d455"
+    integrity sha1-g6HX8KHC4O27tIi02PtUsU7J1FU=
+    dependencies:
+      "@types/node" "*"
+  
+  "@types/resemblejs@^1.3.28":
+    version "1.3.28"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/@types/resemblejs/-/resemblejs-1.3.28.tgz#2e0db3b5fdb0f2f3d454f5d72e13241209ea97ad"
+    integrity sha1-Lg2ztf2w8vPUVPXXLhMkEgnql60=
   
   "@types/yauzl@^2.9.1":
     version "2.9.1"
@@ -83,11 +104,6 @@ Lockfile:
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/ansi-regex/-/ansi-regex-3.0.0.tgz#ed0317c322064f79466c02966bddb605ab37d998"
     integrity sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=
   
-  any-promise@^1.0.0:
-    version "1.3.0"
-    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/any-promise/-/any-promise-1.3.0.tgz#abc6afeedcea52e809cdc0376aed3ce39635d17f"
-    integrity sha1-q8av7tzqUugJzcA3au0845Y10X8=
-  
   aproba@^1.0.3:
     version "1.2.0"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/aproba/-/aproba-1.2.0.tgz#6802e6264efd18c790a1b0d517f0f2627bf2c94a"
@@ -100,6 +116,11 @@ Lockfile:
     dependencies:
       delegates "^1.0.0"
       readable-stream "^2.0.6"
+  
+  arg@^4.1.0:
+    version "4.1.3"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/arg/-/arg-4.1.3.tgz#269fc7ad5b8e42cb63c896d5666017261c144089"
+    integrity sha1-Jp/HrVuOQstjyJbVZmAXJhwUQIk=
   
   balanced-match@^1.0.0:
     version "1.0.0"
@@ -132,6 +153,11 @@ Lockfile:
     version "0.2.13"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/buffer-crc32/-/buffer-crc32-0.2.13.tgz#0d333e3f00eac50aa1454abd30ef8c2a5d9a7242"
     integrity sha1-DTM+PwDqxQqhRUq9MO+MKl2ackI=
+  
+  buffer-from@^1.0.0:
+    version "1.1.1"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/buffer-from/-/buffer-from-1.1.1.tgz#32713bc028f75c02fdb710d7c7bcec1f2c6070ef"
+    integrity sha1-MnE7wCj3XAL9txDXx7zsHyxgcO8=
   
   buffer@^5.2.1, buffer@^5.5.0:
     version "5.6.0"
@@ -211,6 +237,11 @@ Lockfile:
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/detect-libc/-/detect-libc-1.0.3.tgz#fa137c4bd698edf55cd5cd02ac559f91a4c4ba9b"
     integrity sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
   
+  diff@^4.0.1:
+    version "4.0.2"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
+    integrity sha1-YPOuy4nV+uUgwRqhnvwruYKq3n0=
+  
   end-of-stream@^1.1.0, end-of-stream@^1.4.1:
     version "1.4.4"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/end-of-stream/-/end-of-stream-1.4.4.tgz#5ae64a5f45057baf3626ec14da0ca5e4b2431eb0"
@@ -252,11 +283,6 @@ Lockfile:
     version "1.0.0"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/fs.realpath/-/fs.realpath-1.0.0.tgz#1504ad2523158caa40db4a2787cb01411994ea4f"
     integrity sha1-FQStJSMVjKpA20onh8sBQRmU6k8=
-  
-  fs@^0.0.1-security:
-    version "0.0.1-security"
-    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/fs/-/fs-0.0.1-security.tgz#8a7bd37186b6dddf3813f23858b57ecaaf5e41d4"
-    integrity sha1-invTcYa23d84E/I4WLV+yq9eQdQ=
   
   gauge@~2.7.3:
     version "2.7.4"
@@ -358,6 +384,11 @@ Lockfile:
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/isarray/-/isarray-1.0.0.tgz#bb935d48582cba168c06834957a54a3e07124f11"
     integrity sha1-u5NdSFgsuhaMBoNJV6VKPgcSTxE=
   
+  make-error@^1.1.1:
+    version "1.3.6"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/make-error/-/make-error-1.3.6.tgz#2eb2e37ea9b67c4891f684a1394799af484cf7a2"
+    integrity sha1-LrLjfqm2fEiR9oShOUeZr0hM96I=
+  
   mime@^2.0.3:
     version "2.4.5"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/mime/-/mime-2.4.5.tgz#d8de2ecb92982dedbb6541c9b6841d7f218ea009"
@@ -411,15 +442,6 @@ Lockfile:
     version "2.1.2"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
     integrity sha1-0J0fNXtEP0kzgqjrPM0YOHKuYAk=
-  
-  mz@^2.7.0:
-    version "2.7.0"
-    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/mz/-/mz-2.7.0.tgz#95008057a56cafadc2bc63dde7f9ff6955948e32"
-    integrity sha1-lQCAV6Vsr63CvGPd5/n/aVWUjjI=
-    dependencies:
-      any-promise "^1.0.0"
-      object-assign "^4.0.1"
-      thenify-all "^1.0.0"
   
   nan@^2.14.0:
     version "2.14.1"
@@ -495,7 +517,7 @@ Lockfile:
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
     integrity sha1-CXtgK1NCKlIsGvuHkDGDNpQaAR0=
   
-  object-assign@^4.0.1, object-assign@^4.1.0:
+  object-assign@^4.1.0:
     version "4.1.1"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/object-assign/-/object-assign-4.1.1.tgz#2109adc7965887cfc05cbbd442cac8bfbb360863"
     integrity sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
@@ -534,6 +556,23 @@ Lockfile:
     version "1.2.0"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/pend/-/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
     integrity sha1-elfrVQpng/kRUzH89GY9XI4AelA=
+  
+  pixelmatch@^5.2.0:
+    version "5.2.0"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/pixelmatch/-/pixelmatch-5.2.0.tgz#6433386c6a830b0d9ee3962f9ad59695500677cd"
+    integrity sha1-ZDM4bGqDCw2e45YvmtWWlVAGd80=
+    dependencies:
+      pngjs "^4.0.1"
+  
+  pngjs@^4.0.1:
+    version "4.0.1"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/pngjs/-/pngjs-4.0.1.tgz#f803869bb2fc1bfe1bf99aa4ec21c108117cfdbe"
+    integrity sha1-+AOGm7L8G/4b+Zqk7CHBCBF8/b4=
+  
+  pngjs@^5.0.0:
+    version "5.0.0"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/pngjs/-/pngjs-5.0.0.tgz#e79dd2b215767fd9c04561c01236df960bce7fbb"
+    integrity sha1-553SshV2f9nARWHAEjbflgvOf7s=
   
   process-nextick-args@~2.0.0:
     version "2.0.1"
@@ -676,6 +715,19 @@ Lockfile:
       once "^1.3.1"
       simple-concat "^1.0.0"
   
+  source-map-support@^0.5.17:
+    version "0.5.19"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
+    integrity sha1-qYti+G3K9PZzmWSMCFKRq56P7WE=
+    dependencies:
+      buffer-from "^1.0.0"
+      source-map "^0.6.0"
+  
+  source-map@^0.6.0:
+    version "0.6.1"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+    integrity sha1-dHIq8y6WFOnCh6jQu95IteLxomM=
+  
   string-width@^1.0.1:
     version "1.0.2"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/string-width/-/string-width-1.0.2.tgz#118bdf5b8cdc51a2a7e70d211e07e2b0b9b107d3"
@@ -760,24 +812,26 @@ Lockfile:
       safe-buffer "^5.1.2"
       yallist "^3.0.3"
   
-  thenify-all@^1.0.0:
-    version "1.6.0"
-    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/thenify-all/-/thenify-all-1.6.0.tgz#1a1918d402d8fc3f98fbf234db0bcc8cc10e9726"
-    integrity sha1-GhkY1ALY/D+Y+/I02wvMjMEOlyY=
-    dependencies:
-      thenify ">= 3.1.0 < 4"
-  
-  "thenify@>= 3.1.0 < 4":
-    version "3.3.0"
-    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/thenify/-/thenify-3.3.0.tgz#e69e38a1babe969b0108207978b9f62b88604839"
-    integrity sha1-5p44obq+lpsBCCB5eLn2K4hgSDk=
-    dependencies:
-      any-promise "^1.0.0"
-  
   through@^2.3.8:
     version "2.3.8"
     resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
     integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
+  
+  ts-node@^8.10.1:
+    version "8.10.1"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/ts-node/-/ts-node-8.10.1.tgz#77da0366ff8afbe733596361d2df9a60fc9c9bd3"
+    integrity sha1-d9oDZv+K++czWWNh0t+aYPycm9M=
+    dependencies:
+      arg "^4.1.0"
+      diff "^4.0.1"
+      make-error "^1.1.1"
+      source-map-support "^0.5.17"
+      yn "3.1.1"
+  
+  typescript@^3.8.3:
+    version "3.8.3"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
+    integrity sha1-QJ64VE6gM1cRIFhp7EWKsQnuEGE=
   
   unbzip2-stream@^1.3.3:
     version "1.4.2"
@@ -821,3 +875,8 @@ Lockfile:
     dependencies:
       buffer-crc32 "~0.2.3"
       fd-slicer "~1.1.0"
+  
+  yn@3.1.1:
+    version "3.1.1"
+    resolved "https://repo.theplatform.com:443/artifactory/api/npm/npm-tp/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
+    integrity sha1-HodAGgnXZ8HV6rJqbkwYUYLS61A=

@@ -15,6 +15,11 @@ const takeScreenshot = async (url: string, fileName: string) => {
   await browser.close();
 };
 
+const login = () => {
+  // login and store cookies or grab cookies and try to use them
+  // see https://help.apify.com/en/articles/1640711-how-to-log-in-to-a-website-using-puppeteer
+};
+
 const compare = (fileName) => {
   const img1 = PNG.sync.read(readFileSync(`./screenshots/${fileName}_0.png`));
   const img2 = PNG.sync.read(readFileSync(`./screenshots/${fileName}_1.png`));
